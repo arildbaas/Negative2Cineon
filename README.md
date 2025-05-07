@@ -37,23 +37,14 @@ This tool provides high-quality log-encoded TIFFs that can be finished in your g
 
 ## Installation
 
-This project uses a standard `setup.py` installer. To install:
-
-```bash
-git clone https://github.com/yourusername/negative2cineon.git
-cd negative2cineon
-pip install .
-```
-
 Dependencies
-The following libraries will be automatically installed:
 
-rawpy
-numpy
-imageio
-matplotlib
-scikit-image
-Ensure you are using Python 3.8 or higher.
+- rawpy
+- numpy
+- imageio
+- matplotlib
+- scikit-image
+- Python >= 3.8
 
 Command-Line Usage
 
