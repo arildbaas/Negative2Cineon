@@ -45,6 +45,8 @@ Dependencies
 - matplotlib
 - scikit-image
 - Python >= 3.8
+Gui:
+- tkinter
 
 Command-Line Usage
 
