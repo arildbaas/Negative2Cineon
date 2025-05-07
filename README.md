@@ -5,9 +5,7 @@ Supports both single-shot scanning and **trichromatic capture workflows** for hi
 
 ---
 
-## Why Use This?
-
-Scanning color negatives is challenging.
+Scanning color negatives is hard.
 
 Most scanning software (or even RAW converters) applies **sRGB** output transforms by default. This:
 - Clips highlights and shadows
@@ -45,7 +43,7 @@ This project uses a standard `setup.py` installer. To install:
 git clone https://github.com/yourusername/negative2cineon.git
 cd negative2cineon
 pip install .
-
+```
 
 Dependencies
 The following libraries will be automatically installed:
@@ -60,6 +58,7 @@ Ensure you are using Python 3.8 or higher.
 Command-Line Usage
 
 python convert_negative.py [options] input_raw [...]
+
 Arguments
 input_raw [...]
 One or more RAW image files:
@@ -82,51 +81,34 @@ Examples
 Convert a single RAW file
 python convert_negative.py my_negative.ARW
 Apply exposure and choose color space
-python convert_negative.py --exposure 1.3 --color-space ACES my_negative.CR2
+```python convert_negative.py --exposure 1.3 --color-space ACES my_negative.CR2```
 Enable manual white balance picker
-python convert_negative.py --pick-wb my_negative.ARW
+```python convert_negative.py --pick-wb my_negative.ARW```
 Trichromatic capture (3 filtered RAWs: R, G, B)
-python convert_negative.py red.ARW green.ARW blue.ARW
+```python convert_negative.py red.ARW green.ARW blue.ARW```
+
 No extra flag required
 Channel assignment is based on file order:
-1st = Red
-2nd = Green
-3rd = Blue
-Output
-
+- 1st = Red
+- 2nd = Green
+- 3rd = Blue
+  
 The processed image is saved as a 16-bit TIFF in the same folder as the input file(s).
 
-Single-file mode: my_negative_cineon.tiff
-Trichromatic mode: red_trichromatic_cineon.tiff
-The output is:
+- Single-file mode: my_negative_cineon.tiff
+- Trichromatic mode: red_trichromatic_cineon.tiff
 
-Log-encoded using a Cineon-style density curve
-Suitable for further processing in:
-DaVinci Resolve
-Photoshop
-Nuke
-or any advanced editor with log grading capabilities
-You are expected to perform final adjustments:
-Normalize black and white points
-Apply contrast curves
-Optional LUT mapping to Rec.709, etc.
-Development Roadmap
+The output is Log-encoded using a Cineon-style density curve, and you are expected to perform final adjustments:
+- Normalize black and white points
+- Apply contrast curves
+- Optional LUT mapping to Rec.709, etc.
+- Development Roadmap
 
 Coming soon:
 
- Automatic film base estimation and normalization
- Basic highlight/shadow auto-level adjustment
- Film scan “lift” curves to emulate scanner tone response
- Cineon-to-video preview transforms
-Contributing
-
-We welcome:
-
-Pull requests
-Bug reports
-Suggestions and feedback
-Please open an issue or submit a PR if you’d like to improve this tool!
-
-License
-
+ - Automatic film base estimation and normalization
+ - Basic highlight/shadow auto-level adjustment
+ - Film scan “lift” curves to emulate scanner tone response
+ - Cineon-to-video preview transforms
+   
 MIT License – free to use, modify, and distribute.
